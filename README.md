@@ -76,6 +76,14 @@ Content-Type: application/json
 The handler validates and deduplicates the event, persists it, enqueues durable
 processing, and returns `200 OK`. The `workoutId` is the idempotency key.
 
+## Hevy adapter safety
+
+`packages/hevy` owns the runtime-validated boundary for workout retrieval,
+workout-event reconciliation, routine retrieval, and routine replacement.
+Reads have bounded retries under one absolute deadline. Routine writes are
+blocked by default and require both an explicit enable flag and an allowlisted
+routine ID; ambiguous writes are never automatically retried.
+
 ## Quality gates
 
 `npm run check` runs formatting validation, linting, TypeScript checking, and
