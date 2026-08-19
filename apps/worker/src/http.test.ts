@@ -93,7 +93,7 @@ function createEnv(insertChanges = 1): WorkerEnv {
     WORKOUT_QUEUE: {
       send: vi.fn(async () => undefined),
     } as unknown as Queue<HevyWorkoutJob>,
-    HEVY_API_BASE_URL: 'https://api.hevyapp.com/v1',
+    HEVY_API_BASE_URL: 'https://api.hevyapp.com',
     HEVY_API_KEY: 'test-api-key',
     HEVY_WEBHOOK_AUTHORIZATION: 'Bearer test-webhook-secret',
     RECOMMENDATION_MODE: 'recommendation-only',

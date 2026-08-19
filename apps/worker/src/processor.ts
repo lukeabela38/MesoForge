@@ -1,3 +1,5 @@
+import { createHevyClient } from '@mesoforge/hevy';
+
 import type { HevyWorkoutJob, WorkerEnv } from './contracts';
 
 export async function processWorkoutJob(
@@ -14,21 +16,11 @@ export async function processWorkoutJob(
       .bind(now, eventId)
       .run();
 
-    const response = await fetch(
-      `${env.HEVY_API_BASE_URL}/workouts/${encodeURIComponent(workoutId)}`,
-      {
-        headers: {
-          accept: 'application/json',
-          'api-key': env.HEVY_API_KEY,
-        },
-      },
-    );
-
-    if (!response.ok) {
-      throw new Error(`Hevy API returned ${response.status}`);
-    }
-
-    const workout: unknown = await response.json();
+    const hevy = createHevyClient({
+      apiKey: env.HEVY_API_KEY,
+      baseUrl: env.HEVY_API_BASE_URL,
+    });
+    const workout = await hevy.getWorkout(workoutId);
     const fetchedAt = new Date().toISOString();
 
     await env.DB.batch([

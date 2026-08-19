@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@mesoforge/domain": "*",
+    "@mesoforge/hevy": "*",
     "zod": "^4.1.5"
   },
   "devDependencies": {

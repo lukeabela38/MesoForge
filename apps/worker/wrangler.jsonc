@@ -5,7 +5,7 @@
   "compatibility_date": "2026-08-19",
   "workers_dev": true,
   "vars": {
-    "HEVY_API_BASE_URL": "https://api.hevyapp.com/v1",
+    "HEVY_API_BASE_URL": "https://api.hevyapp.com",
     "RECOMMENDATION_MODE": "recommendation-only",
   },
   "d1_databases": [
