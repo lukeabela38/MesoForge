@@ -1,0 +1,20 @@
+{
+  "name": "@mesoforge/worker",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "db:migrate:local": "wrangler d1 migrations apply mesoforge --local",
+    "dev": "wrangler dev",
+    "deploy": "wrangler deploy",
+    "typecheck": "tsc --project tsconfig.json"
+  },
+  "dependencies": {
+    "@mesoforge/domain": "*",
+    "zod": "^4.1.5"
+  },
+  "devDependencies": {
+    "@cloudflare/workers-types": "^4.20250823.0",
+    "wrangler": "^4.33.1"
+  }
+}

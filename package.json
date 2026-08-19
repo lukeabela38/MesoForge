@@ -1,0 +1,33 @@
+{
+  "name": "mesoforge",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Adaptive hypertrophy programming from every logged workout.",
+  "engines": {
+    "node": ">=22"
+  },
+  "workspaces": [
+    "apps/*",
+    "packages/*"
+  ],
+  "scripts": {
+    "check": "npm run format:check && npm run lint && npm run typecheck && npm test",
+    "dev": "npm run dev --workspace @mesoforge/worker",
+    "db:migrate:local": "npm run db:migrate:local --workspace @mesoforge/worker",
+    "format": "prettier --write .",
+    "format:check": "prettier --check .",
+    "lint": "eslint .",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "typecheck": "npm run typecheck --workspaces --if-present"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.35.0",
+    "eslint": "^9.35.0",
+    "globals": "^16.3.0",
+    "prettier": "^3.6.2",
+    "typescript": "^5.9.2",
+    "typescript-eslint": "^8.41.0",
+    "vitest": "^3.2.4"
+  }
+}
