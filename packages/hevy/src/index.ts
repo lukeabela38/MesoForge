@@ -17,3 +17,11 @@ export {
   type Workout,
   type WorkoutEventsQuery,
 } from './schemas';
+export {
+  createGetOnlyFetch,
+  formatVerificationFailure,
+  verifyReadOnlyHevy,
+  type ReadOnlyHevyClient,
+  type ReadOnlyVerificationSummary,
+  type SafeVerificationFailure,
+} from './read-only-verifier';
