@@ -1,0 +1,4 @@
+# Copy this file to apps/worker/.dev.vars for local development.
+# Hevy sends this exact value in the Authorization header.
+HEVY_WEBHOOK_AUTHORIZATION="Bearer replace-with-a-long-random-secret"
+HEVY_API_KEY="replace-with-your-hevy-api-key"
