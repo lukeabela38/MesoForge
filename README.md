@@ -61,6 +61,20 @@ npm run db:migrate:local
 Copy `.dev.vars.example` to `apps/worker/.dev.vars` and replace the example
 values. Never commit `.dev.vars` or API keys.
 
+### Read-only Hevy contract verification
+
+After exporting `HEVY_API_KEY` in your local shell, validate the live Hevy read
+contracts with:
+
+```bash
+npm run hevy:verify:read
+```
+
+The verifier permits only GET requests. Its output contains structural counts
+and schema status, never resource IDs, titles, notes, workout metrics, raw
+responses, or the API key. Do not redirect secret-bearing shell state into a
+file or attach raw API responses to an issue.
+
 ## Webhook contract
 
 Configure Hevy to send requests to:
